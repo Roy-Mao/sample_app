@@ -12,6 +12,11 @@ gem 'rails', '~> 5.1.5'
 # Add the necessary gem for password encryption
 gem 'bcrypt', '~> 3.1.11'
 
+gem 'jquery-rails'
+
+gem 'jquery-ui-rails'
+
+
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use Puma as the app server
