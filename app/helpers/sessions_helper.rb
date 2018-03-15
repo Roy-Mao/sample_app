@@ -1,4 +1,3 @@
-require 'pp'
 module SessionsHelper
 
 
@@ -14,6 +13,10 @@ def remember(user)
 end
 
 
+def current_user?(user)
+  user == current_user
+end
+
 
 # Returns the current logged-in user (if any)
 def current_user
@@ -21,14 +24,7 @@ def current_user
     @current_user ||= User.find_by(id: user_id)
   elsif (user_id = cookies.signed[:user_id])
   	user = User.find_by(id: user_id)
-    # 質問：　どうして user.authenticated?(cookies[:remember_token] returns false????????)
-
-    #cookies[:remember_token] is proved to be the same as user.remember_token
-    pp "--------the cookies remember token is-----------"
-    pp cookies[:remember_token]
-
-
-  	if user && user.authenticated?(cookies[:remember_token])
+  	if (user && user.authenticated?(cookies[:remember_token]))
   	  log_in user
   	  @current_user = user
   	end
@@ -41,7 +37,6 @@ end
 
 
 def forget(user)
-  # Set the remember_digest columnn to nil
   user.forget
   cookies.delete(:user_id)
   cookies.delete(:remember_token)
@@ -52,5 +47,14 @@ def log_out
   @current_user = nil
 end
 
+
+def redirect_back_or(default)
+  redirect_to(session[:forwarding_url]||default)
+  session.delete(:forwarding_url)
+end
+
+def store_location
+  session[:forwarding_url] = request.original_url if request.get?
+end
 
 end

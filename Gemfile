@@ -16,7 +16,15 @@ gem 'jquery-rails'
 
 gem 'jquery-ui-rails'
 
+gem 'pry-byebug'
+gem "pry-doc", require: false
+gem "pry-rails"
+gem "pry-stack_explorer"
 
+gem 'faker', '1.7.3'
+
+gem 'will_paginate', '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use Puma as the app server

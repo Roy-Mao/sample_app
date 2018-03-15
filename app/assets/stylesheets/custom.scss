@@ -21,6 +21,12 @@ $gray-medium-light: #eaeaea;
 }
 
 
+.block_li
+{
+  margin-bottom: 10px
+}
+
+
 /* universal */
 
 body {
@@ -146,7 +152,7 @@ aside {
 }
 
 .gravatar {
-  float: left;
+  /*float: left;*/
   margin-right: 10px;
 }
 

@@ -8,11 +8,7 @@ class SessionsController < ApplicationController
   		# find user.id in the database and put it into session[:user_id]
   		log_in user
       params[:session][:remember_me] ==  '1' ? remember(user) : forget(user)
-  		# user.remember put the digested remember_token into the database
-  		# put the signed user_id into the browser cookies[:user_id]
-  		# put the hashed remember_token into the brwoser cookie[:remember_token]
-  		# remember user
-  		redirect_to user
+  		redirect_back_or user
   	else
   		flash[:danger] = 'Invalid email/password combination'
   		render 'new'
