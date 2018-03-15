@@ -21,6 +21,8 @@ gem "pry-doc", require: false
 gem "pry-rails"
 gem "pry-stack_explorer"
 
+gem "rails-i18n"
+
 gem 'faker', '1.7.3'
 
 gem 'will_paginate', '3.1.6'
