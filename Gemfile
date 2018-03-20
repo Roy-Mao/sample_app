@@ -8,8 +8,32 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
+
+# Add the necessary gem for password encryption
+gem 'bcrypt', '~> 3.1.11'
+
+gem 'jquery-rails'
+
+gem 'jquery-ui-rails'
+
+gem 'pry-byebug'
+gem "pry-doc", require: false
+gem "pry-rails"
+gem "pry-stack_explorer"
+
+gem "rails-i18n"
+
+gem 'faker', '1.7.3'
+gem 'carrierwave', '1.2.2'
+
+gem 'fog-aws'
+
+gem 'mini_magick', '4.7.0'
+
+gem 'will_paginate', '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -18,6 +42,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+# Include the Bootstrap Gem file
+gem 'bootstrap-sass', '3.3.7'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -39,6 +66,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -50,8 +78,16 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'rails-controller-testing', '1.0.2'
+  gem 'minitest-reporters',       '1.1.14'
+  gem 'guard',                    '2.13.0'
+  gem 'guard-minitest',           '2.4.4'
+end
+
 group :production do
-  gem 'pg', '0.18.4'
+  gem 'pg', '0.20.0'
+  gem 'fog', '1.42'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
